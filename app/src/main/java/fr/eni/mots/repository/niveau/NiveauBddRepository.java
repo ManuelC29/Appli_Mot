@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import androidx.lifecycle.LiveData;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,13 +39,16 @@ public class NiveauBddRepository implements INiveauRepository{
         }.execute(item);
     }
 
+    @SuppressLint("StaticFieldLeak")
     @Override
-    public LiveData<Niveau> get(int id) {
-        return null;
+    public Niveau get(int id) {
+
+        return dao.get(id);
+
     }
 
     @Override
-    public LiveData<List<Niveau>> get() {
+    public List<Niveau> get() {
         return null;
     }
 
@@ -54,6 +57,7 @@ public class NiveauBddRepository implements INiveauRepository{
 
     }
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     public void delete(Niveau niveau) {
         new AsyncTask<Niveau,Void,Void>()
@@ -68,8 +72,18 @@ public class NiveauBddRepository implements INiveauRepository{
 
     }
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     public void delete(int id) {
+        new AsyncTask<Integer,Void,Void>()
+        {
+            @Override
+            protected Void doInBackground(Integer... integers)
+            {
+                dao.delete(integers[0]);
+                return null;
+            }
+        }.execute(id);
 
     }
 }

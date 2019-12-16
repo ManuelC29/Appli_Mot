@@ -7,7 +7,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 import java.util.List;
-import fr.eni.mots.model.Liste;
 import fr.eni.mots.model.Niveau;
 
 @Dao
@@ -16,14 +15,17 @@ public interface NiveauDao {
     void insert(Niveau item);
 
     @Query("SELECT * FROM Niveau WHERE id = :id")
-    LiveData<Liste> get(int id);
+    Niveau get(int id);
 
     @Query("SELECT * FROM Niveau")
-    LiveData<List<Niveau>> get();
+    List<Niveau> get();
 
     @Update
     void update(Niveau item);
 
     @Delete
     void delete(Niveau niveau);
+
+    @Query("DELETE FROM Niveau WHERE id = :id")
+    void delete(int id);
 }

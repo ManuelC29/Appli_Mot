@@ -1,6 +1,7 @@
 package fr.eni.mots.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +12,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.facebook.stetho.Stetho;
 
 import fr.eni.mots.R;
+import fr.eni.mots.model.Liste;
 import fr.eni.mots.model.Niveau;
 import fr.eni.mots.repository.niveau.INiveauRepository;
 import fr.eni.mots.repository.niveau.NiveauBddRepository;
@@ -52,10 +55,20 @@ public class MainActivity extends AppCompatActivity {
         Stetho.initializeWithDefaults(this);
 
         // Création d'un niveau
-        Niveau niv2 = new Niveau(null,"Niveau 2");
+        //Niveau niv2 = new Niveau(null,"Niveau 2");
         //Instanciation du repository
         INiveauRepository repo = new NiveauBddRepository(this);
-        repo.delete(2);
+
+        //get un niveau
+
+        //Niveau niveau = repo.get(1);
+        //Toast.makeText(this, "Niveau : "+niveau , Toast.LENGTH_LONG).show();
+
+        //un update
+        //repo.update(niv3);
+
+        //un delete
+        //repo.delete(2);
     }
 
     public void quitter_app(View view) {
