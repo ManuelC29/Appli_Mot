@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey;
 @Entity(foreignKeys = @ForeignKey(entity = Liste.class,
         parentColumns = "id",
         childColumns = "id_list",
-        onDelete = ForeignKey.NO_ACTION),
+        onDelete = ForeignKey.CASCADE),
         indices = {@Index("id_list")}
 )
 public class Mot {

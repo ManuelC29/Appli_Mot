@@ -33,3 +33,8 @@ dependencies {
 dependencies {
     implementation 'com.facebook.stetho:stetho:1.5.1'
 }
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:+'
+    implementation 'androidx.constraintlayout:constraintlayout:+'
+}
