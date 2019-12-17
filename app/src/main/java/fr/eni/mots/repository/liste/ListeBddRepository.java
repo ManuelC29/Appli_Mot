@@ -11,9 +11,8 @@ import java.util.List;
 
 import fr.eni.mots.dal.AppBdd;
 import fr.eni.mots.dal.ListeDao;
-import fr.eni.mots.dal.NiveauDao;
 import fr.eni.mots.model.Liste;
-import fr.eni.mots.model.Niveau;
+
 
 public class ListeBddRepository implements IListeRepository {
 
@@ -42,6 +41,11 @@ public class ListeBddRepository implements IListeRepository {
             }
         }.execute(item);
 
+    }
+
+    @Override
+    public LiveData<List<Liste>> getListByIdNiv(int id){
+       return dao.getListByIdNiv(id);
     }
 
     @Override

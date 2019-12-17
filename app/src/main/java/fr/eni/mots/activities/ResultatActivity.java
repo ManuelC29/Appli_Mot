@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import fr.eni.mots.R;
 
-public class Resultat extends AppCompatActivity {
+public class ResultatActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

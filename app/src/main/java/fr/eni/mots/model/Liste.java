@@ -1,6 +1,9 @@
 package fr.eni.mots.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -14,7 +17,7 @@ import androidx.room.PrimaryKey;
         onDelete = ForeignKey.NO_ACTION),
         indices = {@Index("id_niveau")}
 )
-public class Liste {
+public class Liste implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private Integer id;
@@ -29,6 +32,32 @@ public class Liste {
         this.libelle = libelle;
         this.idNiveau = idNiveau;
     }
+
+    protected Liste(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            idNiveau = null;
+        } else {
+            idNiveau = in.readInt();
+        }
+        libelle = in.readString();
+    }
+
+    public static final Creator<Liste> CREATOR = new Creator<Liste>() {
+        @Override
+        public Liste createFromParcel(Parcel in) {
+            return new Liste(in);
+        }
+
+        @Override
+        public Liste[] newArray(int size) {
+            return new Liste[size];
+        }
+    };
 
     public Integer getIdNiveau() {
         return idNiveau;
@@ -55,4 +84,34 @@ public class Liste {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(id);
+        }
+        if (idNiveau == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(idNiveau);
+        }
+        dest.writeString(libelle);
+    }
+
+    @Override
+    public String toString() {
+        return "Liste{" +
+                "id=" + id +
+                ", idNiveau=" + idNiveau +
+                ", libelle='" + libelle + '\'' +
+                '}';
+    }
 }

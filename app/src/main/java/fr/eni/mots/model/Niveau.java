@@ -9,9 +9,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 
-@SuppressLint("ParcelCreator")
 @Entity
-public class Niveau implements Parcelable {
+public class Niveau  implements Parcelable
+{
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private Integer id;
@@ -22,6 +22,27 @@ public class Niveau implements Parcelable {
         this.id = id;
         this.libelle = libelle;
     }
+
+    protected Niveau(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        libelle = in.readString();
+    }
+
+    public static final Creator<Niveau> CREATOR = new Creator<Niveau>() {
+        @Override
+        public Niveau createFromParcel(Parcel in) {
+            return new Niveau(in);
+        }
+
+        @Override
+        public Niveau[] newArray(int size) {
+            return new Niveau[size];
+        }
+    };
 
     public Integer getId() {
         return id;
@@ -54,6 +75,12 @@ public class Niveau implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(id);
+        }
+        dest.writeString(libelle);
     }
 }

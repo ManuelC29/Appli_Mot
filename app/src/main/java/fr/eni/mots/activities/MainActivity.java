@@ -40,14 +40,17 @@ public class MainActivity extends AppCompatActivity {
         imButResult = findViewById(R.id.btn_result);
         imButQuit = findViewById(R.id.btn_quitter);
 
+
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.fade_in);
         Animation dezoom = AnimationUtils.loadAnimation(this, R.anim.left);
         Animation rescale = AnimationUtils.loadAnimation(this, R.anim.zoom_out);
+        Animation rotate = AnimationUtils.loadAnimation(this,R.anim.rotate);
         imButJouer.startAnimation(animation);
         imButPropos.startAnimation(animation);
         imButResult.startAnimation(animation);
         imButQuit.startAnimation(dezoom);
         imButQuit.startAnimation(rescale);
+
 
         // Implémentation de Stetho
         Stetho.initializeWithDefaults(this);
@@ -110,11 +113,24 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void resultats(View view) {
+        Intent intent = new Intent(this,ResultatActivity.class);
+        startActivity(intent);
+    }
+
     public void settings(View view) {
         //TODO SETTINGS
+
+
     }
 
     public void about(View view) {
         //TODO ABOUT
+    }
+
+
+    public void proposer(View view) {
+        Intent intent = new Intent(this, ProposerActivity.class);
+        startActivity(intent);
     }
 }

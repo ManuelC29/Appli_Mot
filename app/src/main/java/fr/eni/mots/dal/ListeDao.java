@@ -20,8 +20,8 @@ public interface ListeDao {
     @Query("SELECT * FROM Liste")
     LiveData<List<Liste>> get();
 
-//    @Query("SELECT * FROM Liste WHERE id_niveau = :id")
-//    LiveData<List<Liste>> get(int id);
+    @Query("SELECT * FROM Liste WHERE id_niveau = :id")
+    LiveData<List<Liste>> getListByIdNiv(int id);
 
     @Update
     void update(Liste item);

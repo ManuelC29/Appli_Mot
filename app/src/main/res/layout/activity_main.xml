@@ -41,6 +41,7 @@
         android:layout_margin="5dp"
         android:scaleType="centerInside"
         android:background="@null"
+        android:onClick="resultats"
         />
     <ImageButton
         android:id="@+id/btn_propos"
@@ -53,6 +54,7 @@
         android:layout_margin="5dp"
         android:scaleType="centerInside"
         android:background="@null"
+        android:onClick="proposer"
         />
 
     <ImageButton

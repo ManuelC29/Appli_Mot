@@ -14,7 +14,7 @@ public interface IListeRepository {
 
     LiveData<List<Liste>> get();
 
-//    LiveData<List<Liste>> getListByIdNiv();
+    LiveData<List<Liste>> getListByIdNiv(int id);
 
     void update(Liste item);
 

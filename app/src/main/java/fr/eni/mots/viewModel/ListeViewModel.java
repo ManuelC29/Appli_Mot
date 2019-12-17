@@ -27,8 +27,13 @@ public class ListeViewModel extends AndroidViewModel {
             observateurListe = repository.get();
         }
     }
-    public LiveData<List<Liste>> get()
+
+    public LiveData<List<Liste>> getListByIdNivObserver(int id)
     {
-        return observateurListe;
+
+       return repository.getListByIdNiv(id);
+      //  return observateurListe;
     }
+
+
 }

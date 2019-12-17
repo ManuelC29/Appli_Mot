@@ -4,16 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
 import java.util.List;
-
 import fr.eni.mots.R;
 import fr.eni.mots.adapter.NiveauAdapter;
 import fr.eni.mots.model.Niveau;
@@ -41,7 +37,7 @@ public class NiveauActivity extends AppCompatActivity {
             public void onChanged(final List<Niveau> niveaux) {
 
                 //création
-                NiveauAdapter adapter = new NiveauAdapter(NiveauActivity.this,R.layout.style_ligne, niveaux);
+                NiveauAdapter adapter = new NiveauAdapter(NiveauActivity.this,R.layout.style_ligne_niv, niveaux);
 
                 //find la listview
                 ListView listview = findViewById(R.id.ma_liste_niveau);
@@ -50,18 +46,14 @@ public class NiveauActivity extends AppCompatActivity {
                 //set des données dans la listeview
                 listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
                 {
-
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                        Intent intent = new Intent(NiveauActivity.this,NiveauActivity.class);
+                        Intent intent = new Intent(NiveauActivity.this,ListeActivity.class);
                         intent.putExtra("niveau",niveaux.get(position));
                         startActivity(intent);
-
                     }
-
                 });
-                Log.i("ZZZ","IHM : " + niveaux.size());
+
             }
         });
     }

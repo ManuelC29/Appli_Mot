@@ -10,11 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.List;
 import fr.eni.mots.R;
-import fr.eni.mots.model.Niveau;
+import fr.eni.mots.model.Liste;
 
-public class NiveauAdapter extends ArrayAdapter<Niveau> {
+public class ListeAdapter extends ArrayAdapter<Liste> {
 
-    public NiveauAdapter(@NonNull Context context, int resource, @NonNull List<Niveau> objects) {
+    public ListeAdapter(@NonNull Context context, int resource, @NonNull List<Liste> objects) {
         super(context, resource, objects);
     }
 
@@ -24,14 +24,15 @@ public class NiveauAdapter extends ArrayAdapter<Niveau> {
     {
         LayoutInflater pompe = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View fichierXmlDecompresse = pompe.inflate(R.layout.style_ligne_niv,parent,false);
+        View fichierXmlDecompresse = pompe.inflate(R.layout.style_ligne_liste,parent,false);
 
-        TextView tvLibelle = fichierXmlDecompresse.findViewById(R.id.tv_lst_niv_libelle);
+        TextView tvLibelle = fichierXmlDecompresse.findViewById(R.id.tv_lst_liste_libelle);
 
-        Niveau niveau = getItem(position);
+        Liste liste = getItem(position);
 
-        tvLibelle.setText(niveau.getLibelle());
+        tvLibelle.setText(liste.getLibelle());
         return fichierXmlDecompresse;
     }
+
 
 }

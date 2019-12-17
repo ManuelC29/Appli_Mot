@@ -26,7 +26,6 @@ public class NiveauViewModel extends AndroidViewModel {
         {
             observateurListe = repository.get();
         }
-
     }
 
     public LiveData<List<Niveau>> get()
