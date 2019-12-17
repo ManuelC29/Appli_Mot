@@ -36,7 +36,7 @@ public class JouerActivity extends AppCompatActivity {
 //        image.setImageResource(resID);                  "nomble de l'image"
 
 
-        
+
 
 
         //récupérer tous les mot de la liste choisie

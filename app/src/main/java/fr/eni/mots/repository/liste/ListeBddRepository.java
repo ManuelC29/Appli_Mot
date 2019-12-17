@@ -50,7 +50,7 @@ public class ListeBddRepository implements IListeRepository {
 
     @Override
     public LiveData<Liste> get(int id) {
-        return null;
+        return dao.get(id);
     }
 
     @Override
