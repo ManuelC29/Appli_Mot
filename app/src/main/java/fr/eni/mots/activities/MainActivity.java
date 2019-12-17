@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         imButResult = findViewById(R.id.btn_result);
         imButQuit = findViewById(R.id.btn_quitter);
 
-
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.fade_in);
         Animation dezoom = AnimationUtils.loadAnimation(this, R.anim.left);
         Animation rescale = AnimationUtils.loadAnimation(this, R.anim.zoom_out);

@@ -51,10 +51,14 @@
         app:layout_constraintLeft_toRightOf="@id/guideline_niveau_gauche"
         app:layout_constraintRight_toLeftOf="@id/guideline_niveau_droite"
         android:text="Choisir un Niveau"
-        android:textSize="20dp"
+        android:textSize="35sp"
         android:textStyle="bold"
         android:layout_margin="10dp"
         android:textColor="@color/blanc"
+        android:shadowColor="@color/rouge"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"
         />
     <ListView
         android:id="@+id/ma_liste_niveau"

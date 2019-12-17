@@ -25,11 +25,19 @@ public class JouerActivity extends AppCompatActivity {
 
         Log.i("RRR", "Liste" + liste.toString());
 
-        //piste pour les images
-        //imageview.setImageURI(Uri.parse("pathofimage"));
-
-
         //TODO GAME
+
+
+//        ImageView image = findViewById(R.id.iv_image);
+//        TextView motMel = findViewById(R.id.tv_motmel);
+//
+//        //On recupere id de l'image grace a son nom de ressource, this est le context
+//        int resID = this.getResources().getIdentifier(currentMot.getLienImage(), "drawable", getPackageName());
+//        image.setImageResource(resID);                  "nomble de l'image"
+
+
+        
+
 
         //récupérer tous les mot de la liste choisie
 

@@ -48,12 +48,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Liste de Mots"
-        android:textSize="20dp"
+        android:textSize="35sp"
         app:layout_constraintTop_toBottomOf="@id/guideline_liste_haut"
         app:layout_constraintLeft_toRightOf="@id/guideline_liste_gauche"
         app:layout_constraintRight_toLeftOf="@id/guideline_liste_droite"
         android:textStyle="bold"
         android:textColor="@color/blanc"
+        android:shadowColor="@color/rouge"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"
         />
 
     <ListView
