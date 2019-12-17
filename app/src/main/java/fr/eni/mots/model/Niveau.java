@@ -1,12 +1,17 @@
 package fr.eni.mots.model;
 
+import android.annotation.SuppressLint;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 
+@SuppressLint("ParcelCreator")
 @Entity
-public class Niveau {
+public class Niveau implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private Integer id;
@@ -40,5 +45,15 @@ public class Niveau {
                 "id=" + id +
                 ", libelle='" + libelle + '\'' +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

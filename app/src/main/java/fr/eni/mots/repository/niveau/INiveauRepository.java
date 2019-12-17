@@ -10,9 +10,9 @@ public interface INiveauRepository {
 
     void insert(Niveau item);
 
-    Niveau get(int id);
+    LiveData<Niveau> get(int id);
 
-    List<Niveau> get();
+    LiveData<List<Niveau>> get();
 
     void update(Niveau item);
 

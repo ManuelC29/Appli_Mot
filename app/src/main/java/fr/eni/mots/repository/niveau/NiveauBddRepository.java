@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 
+import androidx.lifecycle.LiveData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,15 +42,13 @@ public class NiveauBddRepository implements INiveauRepository{
 
     @SuppressLint("StaticFieldLeak")
     @Override
-    public Niveau get(int id) {
-
+    public LiveData<Niveau> get(int id) {
         return dao.get(id);
-
     }
 
     @Override
-    public List<Niveau> get() {
-        return null;
+    public LiveData<List<Niveau>> get() {
+        return dao.get();
     }
 
     @Override

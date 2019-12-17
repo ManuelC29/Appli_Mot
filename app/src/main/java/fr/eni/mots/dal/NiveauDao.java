@@ -15,10 +15,10 @@ public interface NiveauDao {
     void insert(Niveau item);
 
     @Query("SELECT * FROM Niveau WHERE id = :id")
-    Niveau get(int id);
+    LiveData<Niveau> get(int id);
 
     @Query("SELECT * FROM Niveau")
-    List<Niveau> get();
+    LiveData<List<Niveau>> get();
 
     @Update
     void update(Niveau item);

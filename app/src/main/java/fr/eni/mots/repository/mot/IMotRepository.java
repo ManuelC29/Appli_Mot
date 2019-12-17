@@ -20,4 +20,5 @@ public interface IMotRepository {
     void delete(Mot article);
 
     void delete(int id);
+
 }

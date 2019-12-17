@@ -1,8 +1,6 @@
 package fr.eni.mots.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,17 +8,17 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 import com.facebook.stetho.Stetho;
-
 import fr.eni.mots.R;
 import fr.eni.mots.model.Liste;
+import fr.eni.mots.model.Mot;
 import fr.eni.mots.model.Niveau;
-import fr.eni.mots.repository.niveau.INiveauRepository;
-import fr.eni.mots.repository.niveau.NiveauBddRepository;
+import fr.eni.mots.repository.liste.IListeRepository;
+import fr.eni.mots.repository.liste.ListeBddRepository;
+import fr.eni.mots.repository.mot.IMotRepository;
+import fr.eni.mots.repository.mot.MotBddRepository;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,21 +52,52 @@ public class MainActivity extends AppCompatActivity {
         // Implémentation de Stetho
         Stetho.initializeWithDefaults(this);
 
-        // Création d'un niveau
-        //Niveau niv2 = new Niveau(null,"Niveau 2");
-        //Instanciation du repository
-        INiveauRepository repo = new NiveauBddRepository(this);
+          ///////////////   INSERTION DE NIVEAU //////////////////////
+//        // Création de niveau
+//        Niveau niv1 = new Niveau(null,"Niveau 1");
+//        Niveau niv2 = new Niveau(null,"Niveau 2");
+//        Niveau niv3 = new Niveau(null, "Niveau 3");
+//        Niveau niv4 = new Niveau(null,"Niveau 4");
+//        Niveau niv5 = new Niveau(null, "Niveau 5");
+//
+//        //Instanciation du repository
+//        INiveauRepository repo = new NiveauBddRepository(this);
+//
+//        // Enregistrement des niveaux
+//        repo.insert(niv1);
+//        repo.insert(niv2);
+//        repo.insert(niv3);
+//        repo.insert(niv4);
+//        repo.insert(niv5);
+//
+          ///////////////   INSERTION DE LISTES //////////////////////
+//        IListeRepository listRepo = new ListeBddRepository(this);
+//        Liste list1 = new Liste(null,"Liste 1", 1);
+//        Liste list2 = new Liste(null,"Liste 2", 1);
+//        Liste list3 = new Liste(null,"Liste 3", 1);
+//        Liste list4 = new Liste(null,"Liste 4", 1);
+//        Liste list5 = new Liste(null,"Liste 5", 1);
+//
+//        listRepo.insert(list1);
+//        listRepo.insert(list2);
+//        listRepo.insert(list3);
+//        listRepo.insert(list4);
+//        listRepo.insert(list5);
+//
 
-        //get un niveau
+//        IMotRepository motRepository = new MotBddRepository(this);
+//        Mot mot1 = new Mot(null,"ABAT", "ABBE", "",0,1);
+//        Mot mot2 = new Mot(null,"ABBE", "ABBE", "",0,1);
+//        Mot mot3 = new Mot(null,"ABAT", "ABEE", "",0,1);
+//        Mot mot4 = new Mot(null,"ABAT", "ABER", "",0,1);
+//        Mot mot5 = new Mot(null,"ABAT", "ABLE", "",0,1);
+//
+//        motRepository.insert(mot1);
+//        motRepository.insert(mot2);
+//        motRepository.insert(mot3);
+//        motRepository.insert(mot4);
+//        motRepository.insert(mot5);
 
-        //Niveau niveau = repo.get(1);
-        //Toast.makeText(this, "Niveau : "+niveau , Toast.LENGTH_LONG).show();
-
-        //un update
-        //repo.update(niv3);
-
-        //un delete
-        //repo.delete(2);
     }
 
     public void quitter_app(View view) {
@@ -77,10 +106,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Jouer(View view) {
-
-        Intent intent = new Intent(this,JouerActivity.class);
+        Intent intent = new Intent(this, NiveauActivity.class);
         startActivity(intent);
-
     }
 
     public void settings(View view) {
