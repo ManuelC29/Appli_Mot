@@ -118,9 +118,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void settings(View view) {
-        //TODO SETTINGS
-
-
+        Intent intent = new Intent(this,SettingActivity.class);
+        startActivity(intent);
     }
 
     public void about(View view) {

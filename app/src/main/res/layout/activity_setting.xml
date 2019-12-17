@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ResultatActivity">
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/fond2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_setting_gauche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_setting_droite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_setting_haut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_setting_bas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+    <TextView
+        android:id="@+id/setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paramètres"
+        android:textSize="35sp"
+        app:layout_constraintTop_toBottomOf="@id/guideline_setting_haut"
+        app:layout_constraintLeft_toRightOf="@id/guideline_setting_gauche"
+        app:layout_constraintRight_toLeftOf="@id/guideline_setting_droite"
+        android:textStyle="bold"
+        android:textColor="@color/blanc"
+        android:shadowColor="@color/rouge"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_setting_sous_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"
+        />
+    <TextView
+        android:id="@+id/tv_son"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activer les sons"
+        app:layout_constraintTop_toBottomOf="@id/guideline_setting_sous_text"
+        app:layout_constraintLeft_toRightOf="@id/guideline_setting_gauche"
+        android:textColor="@color/blanc"
+        android:textStyle="bold"
+        android:shadowColor="@color/rouge"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"
+        android:textSize="20sp"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_setting_sous_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20"
+        />
+    <Switch
+        android:id="@+id/switch_son"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="@id/guideline_setting_droite"
+        app:layout_constraintTop_toBottomOf="@id/guideline_setting_sous_text"
+        />
+    <TextView
+        android:id="@+id/tv_vibration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activier les vibrations"
+        app:layout_constraintTop_toBottomOf="@id/guideline_setting_sous_text2"
+        app:layout_constraintLeft_toRightOf="@id/guideline_setting_gauche"
+        android:textColor="@color/blanc"
+        android:textStyle="bold"
+        android:shadowColor="@color/rouge"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"
+        android:textSize="20sp"
+        />
+    <Switch
+        android:id="@+id/switch_vibration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="@id/guideline_setting_droite"
+        app:layout_constraintTop_toBottomOf="@id/guideline_setting_sous_text2"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
