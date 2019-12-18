@@ -1,0 +1,4 @@
+https://www.mkyong.com/android/android-gridview-example/
+https://openclassrooms.com/fr/courses/2023346-creez-des-applications-pour-android/2028752-le-multimedia
+
+select * FROM Mots Where id_list = 1;

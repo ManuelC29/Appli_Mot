@@ -1,0 +1,106 @@
+
+    private int compteur = 0;
+    List<Mot> lstMots = new ArrayList<>();
+    Mot motCourant = null;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_trouver_mot);
+
+        Button boutonPasser = findViewById(R.id.btn_btn_passer);
+
+        Intent intent = getIntent();
+        Liste liste = intent.getParcelableExtra("choix_liste");
+        Log.i("XXX", "test liste" + liste.toString());
+
+        DevinetteViewModel devinetteViewModel = ViewModelProviders.of(this).get(DevinetteViewModel.class);
+        MutableLiveData<List<Mot>> motObservateur = devinetteViewModel.getMotsParListeObserver(liste.getId());
+
+        Log.i("XXX", "test observer : ok");
+        motObservateur.observe(this, new Observer<List<Mot>>() {
+            @Override
+            public void onChanged(List<Mot> mots) {
+
+                lstMots = mots;
+                motCourant = lstMots.get(TrouverMotActivity.this.compteur);
+                jouerMot (motCourant);
+            }
+        });
+    }
+
+
+    private void jouerMot(Mot mot) {
+
+        Button boutonValider = findViewById(R.id.btn_mot_valider);
+
+        int resID = TrouverMotActivity.this.getResources().getIdentifier(mot.getImage(), "drawable", TrouverMotActivity.this.getPackageName());
+        ImageView ivMot = findViewById(R.id.iv_mot_image);
+        ivMot.setImageResource(resID);
+
+        TextView tvMotLibelle = findViewById(R.id.tv_mot_libelle);
+        tvMotLibelle.setText(mot.getLibelle());
+
+        boutonValider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Mot mot = TrouverMotActivity.this.motCourant ;
+                /*
+
+                EditText etPropo = findViewById(R.id.et_mot_proposition) ;
+                String propo = etPropo.getText().toString();
+
+                if (verifierPropo(TrouverMotActivity.this.mot.getLibelle(), propo)) {
+                    TrouverMotActivity.this.mot.setEtat(1);
+                } else {
+                    TrouverMotActivity.this.mot.setEtat(2);
+                }
+                mot.setProposition(propo);
+                IMotRepository repo = new MotBddRepository(TrouverMotActivity.this);
+                repo.update(mot);
+
+                */
+
+
+                compteur++;
+                mot = lstMots.get(compteur);
+                setContentView(R.layout.activity_trouver_mot);
+
+                int resID = TrouverMotActivity.this.getResources().getIdentifier(mot.getImage(), "drawable", TrouverMotActivity.this.getPackageName());
+                ImageView ivMot = findViewById(R.id.iv_mot_image);
+                ivMot.setImageResource(resID);
+            }
+        });
+
+
+
+    }
+
+    public Boolean verifierPropo (String mot, String propo) {
+        return propo.equals(mot);
+    }
+
+    public String melangeMoiCe(String mot) {
+
+        List<Character> list = new ArrayList<>();
+        for (char c : mot.toCharArray()) {
+            list.add(c);
+        }
+
+        StringBuilder b = new StringBuilder();
+        String motFinal = null;
+
+        do {
+            Collections.shuffle(list);
+
+            list.forEach(b::append);
+
+            motFinal = list.toString();
+
+        } while (mot.toUpperCase().equals(motFinal.toUpperCase()));
+
+
+        return b.toString();
+    }
+}
