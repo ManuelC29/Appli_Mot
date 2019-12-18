@@ -1,6 +1,7 @@
 package fr.eni.mots.dal;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -16,10 +17,19 @@ public interface MotDao {
     void insert(Mot item);
 
     @Query("SELECT * FROM Mot WHERE id = :id")
-    LiveData<Liste> get(int id);
+    LiveData<Mot> get(int id);
 
     @Query("SELECT * FROM Mot")
-    LiveData<List<Liste>> get();
+    LiveData<List<Mot>> get();
+
+    @Query("SELECT * " +
+            "FROM Mot " +
+            "INNER JOIN Liste " +
+            "ON Mot.id_list = Liste.id " +
+            "INNER JOIN Niveau ON id_niveau = Niveau.id " +
+            "WHERE id_list = :idListe " +
+            "AND id_niveau = :idNiveau")
+    LiveData<List<Mot>> get(int idListe, int idNiveau);
 
     @Update
     void update(Mot item);

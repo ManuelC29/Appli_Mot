@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import java.util.List;
@@ -25,14 +27,17 @@ public class ListeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_liste);
+
 
         Intent intent = getIntent();
         Niveau niveau = intent.getParcelableExtra("niveau");
 
         Log.i("ZZZ","NIVEAU RECU : " + niveau.toString());
 
-        IListeRepository repo = new ListeBddRepository(this);
+        //IListeRepository repo = new ListeBddRepository(this);
 
         ListeViewModel listeViewModel = ViewModelProviders.of(this).get(ListeViewModel.class);
         LiveData<List<Liste>> observateur = listeViewModel.getListByIdNivObserver(niveau.getId());
@@ -55,6 +60,7 @@ public class ListeActivity extends AppCompatActivity {
                         Intent intent = new Intent(ListeActivity.this,JouerActivity.class);
                         intent.putExtra("liste",listes.get(position));
                         startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right2, R.anim.slide_out_left2);
                     }
                 });
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,12 +43,17 @@ public class MotBddRepository implements IMotRepository{
 
     @Override
     public LiveData<Mot> get(int id) {
-        return null;
+        return dao.get(id);
     }
 
     @Override
     public LiveData<List<Mot>> get() {
-        return null;
+        return dao.get();
+    }
+
+    @Override
+    public LiveData<List<Mot>> getMotsListNiv(int idListe, int idNiveau) {
+        return dao.get(idListe,idNiveau);
     }
 
     @Override

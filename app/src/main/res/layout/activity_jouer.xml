@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
+        app:layout_constraintGuide_percent="0.01" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_bas"
@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.52" />
+        app:layout_constraintGuide_percent="0.6" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_dessous_text"
@@ -73,14 +73,30 @@
         app:layout_constraintGuide_percent="0.50" />
 
     <ImageView
+        android:id="@+id/iv_jeux_img"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="5dp"
         android:src="@mipmap/orange"
+        android:scaleType="centerCrop"
+
         app:layout_constraintBottom_toTopOf="@id/guideline_dessous_photo"
         app:layout_constraintLeft_toRightOf="@id/guideline_gauche"
         app:layout_constraintRight_toLeftOf="@id/guideline_droite"
         app:layout_constraintTop_toBottomOf="@id/guideline_haut" />
+    <TextView
+        android:id="@+id/tv_jeux_mot_prop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ORANGE"
+        android:textColor="@color/blanc"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/guideline_dessus_text"
+        app:layout_constraintLeft_toRightOf="@id/guideline_gauche"
+        app:layout_constraintRight_toLeftOf="@id/guideline_droite"
+        app:layout_constraintTop_toBottomOf="@id/guideline_dessous_photo"
+        />
 
     <GridView
         android:id="@+id/gridview"
@@ -99,6 +115,9 @@
         android:layout_height="0dp"
         android:layout_margin="5dp"
         android:text="Valider"
+        android:textColor="@color/blanc"
+        android:textStyle="bold"
+        android:background="@color/bleu"
         app:layout_constraintBottom_toTopOf="@id/guideline_bas"
         app:layout_constraintLeft_toRightOf="@id/guideline_milieu"
         app:layout_constraintRight_toLeftOf="@id/guideline_droite"
@@ -110,6 +129,13 @@
         android:layout_height="0dp"
         android:layout_margin="5dp"
         android:text="Passer"
+        android:textStyle="bold"
+        android:textColor="@color/blanc"
+        android:background="@color/rouge"
+        android:bottomRightRadius="500dp"
+        android:bottomLeftRadius="15dp"
+        android:topRightRadius="15dp"
+        android:topLeftRadius="15dp"
         app:layout_constraintBottom_toTopOf="@id/guideline_bas"
         app:layout_constraintLeft_toRightOf="@id/guideline_gauche"
         app:layout_constraintRight_toLeftOf="@id/guideline_milieu"
