@@ -192,11 +192,11 @@ public class JouerActivity extends AppCompatActivity {
                     bindEcran(JouerActivity.this.motEnCours);
                     updateMot(motEnCours,motJoue,TROUVER);
 
-                    afficherMessage("C O R R E C T", getColor(R.color.blanc), getColor(R.color.vert));
+                    afficherMessage("C O R R E C T E", getColor(R.color.blanc), getColor(R.color.vert));
 
                 }else{
                     //Le mot proposé n'était pas le bon
-                    Log.i("XXX","Votre mot ne correspond pas, verif");
+                    afficherMessage("I N C O R R E C T E", getColor(R.color.blanc), getColor(R.color.orange_transparent));
                     motEdit.setText("");
                     updateMot(motEnCours,motJoue,RATER);
                 }

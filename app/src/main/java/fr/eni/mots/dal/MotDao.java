@@ -32,4 +32,3 @@ public interface MotDao {
     void delete(Mot mot);
 }
 
-
