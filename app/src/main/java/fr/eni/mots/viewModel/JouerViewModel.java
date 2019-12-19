@@ -27,12 +27,12 @@ public class JouerViewModel extends AndroidViewModel {
         }
     }
 
-    public LiveData<List<Mot>> getMotsListNivObserver(int idList, int idNiveau)
+    public MutableLiveData<List<Mot>> getMotsListNivObserver(int idList)
     {
-        return repository.getMotsListNiv(idList,idNiveau);
+        return repository.getMotsList(idList);
     }
 
-    public LiveData<Mot> updateMot(Mot mot){
+    public MutableLiveData<Mot> updateMot(Mot mot){
         repository.update(mot);
         return null;
     }

@@ -163,6 +163,7 @@
         app:layout_constraintRight_toLeftOf="@id/guideline_droite"
         app:layout_constraintTop_toBottomOf="@id/guideline_dessous_text"
         android:scaleType="centerInside"
+
         />
     <ImageButton
         android:id="@+id/btn_passer"

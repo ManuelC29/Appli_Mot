@@ -16,7 +16,7 @@ public interface IMotRepository {
 
     LiveData<List<Mot>> get();
 
-    LiveData<List<Mot>> getMotsListNiv(int idListe, int idNiveau);
+    MutableLiveData<List<Mot>> getMotsList(int idListe);
 
     void update(Mot item);
 

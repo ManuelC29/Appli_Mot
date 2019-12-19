@@ -19,7 +19,7 @@ import fr.eni.mots.model.Mot;
 public class MotBddRepository implements IMotRepository{
     private Context context = null;
     private MotDao dao = null;
-    List<Liste> motList = new ArrayList<>();
+    MutableLiveData<List<Mot>> motListObserver = new MutableLiveData<>();
 
     //Constructeur
     public MotBddRepository(Context context)
@@ -27,6 +27,8 @@ public class MotBddRepository implements IMotRepository{
         this.context = context;
         dao = AppBdd.getInstance(context).motDao();
     }
+
+
     @SuppressLint("StaticFieldLeak")
     @Override
     public void insert(Mot item) {
@@ -51,13 +53,38 @@ public class MotBddRepository implements IMotRepository{
         return dao.get();
     }
 
+
+    @SuppressLint("StaticFieldLeak")
     @Override
-    public LiveData<List<Mot>> getMotsListNiv(int idListe, int idNiveau) {
-        return dao.get(idListe,idNiveau);
+    public MutableLiveData<List<Mot>> getMotsList(int idListe) {
+        new AsyncTask<Integer, Void,List<Mot>>(){
+
+            @Override
+            protected List<Mot> doInBackground(Integer... integers) {
+                return dao.getMotsList(integers[0]);
+            }
+
+            @Override
+            protected void onPostExecute(List<Mot> mots) {
+                super.onPostExecute(mots);
+                motListObserver.setValue(mots);
+            }
+        }.execute(idListe);
+        return motListObserver;
     }
 
+
+    @SuppressLint("StaticFieldLeak")
     @Override
     public void update(Mot item) {
+        new AsyncTask<Mot,Void,Void>(){
+
+            @Override
+            protected Void doInBackground(Mot... mots) {
+                dao.update(item);
+                return null;
+            }
+        }.execute();
 
     }
 

@@ -22,14 +22,8 @@ public interface MotDao {
     @Query("SELECT * FROM Mot")
     LiveData<List<Mot>> get();
 
-    @Query("SELECT * " +
-            "FROM Mot " +
-            "INNER JOIN Liste " +
-            "ON Mot.id_list = Liste.id " +
-            "INNER JOIN Niveau ON id_niveau = Niveau.id " +
-            "WHERE id_list = :idListe " +
-            "AND id_niveau = :idNiveau")
-    LiveData<List<Mot>> get(int idListe, int idNiveau);
+    @Query("SELECT * FROM Mot WHERE id_list=:idListe")
+    List<Mot> getMotsList(int idListe);
 
     @Update
     void update(Mot item);
@@ -37,3 +31,5 @@ public interface MotDao {
     @Delete
     void delete(Mot mot);
 }
+
+
