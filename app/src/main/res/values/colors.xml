@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="blanc">#FFFFFF</color>
+    <color name="blancOpaque">#888</color>
     <color name="rouge">#FF0000</color>
     <color name="bleu">#2196F3</color>
+    <color name="rose">#E91E63</color>
 </resources>

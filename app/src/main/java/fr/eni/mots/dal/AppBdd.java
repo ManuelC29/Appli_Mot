@@ -16,7 +16,6 @@ import fr.eni.mots.model.Niveau;
 @Database(entities = {Mot.class, Liste.class, Niveau.class}, version = 3, exportSchema = false)
 public abstract class AppBdd extends RoomDatabase {
 
-    //TODO APP BDD
     private static AppBdd INSTANCE;
 
     public abstract ListeDao listeDao();

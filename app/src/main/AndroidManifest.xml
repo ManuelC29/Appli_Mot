@@ -11,6 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.InformationActivity"></activity>
+        <activity android:name=".activities.AproposActivity" />
         <activity android:name=".activities.SettingActivity" />
         <activity android:name=".activities.ProposerActivity" />
         <activity android:name=".activities.ListeActivity" />

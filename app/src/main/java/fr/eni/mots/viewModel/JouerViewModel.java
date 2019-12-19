@@ -29,9 +29,12 @@ public class JouerViewModel extends AndroidViewModel {
 
     public LiveData<List<Mot>> getMotsListNivObserver(int idList, int idNiveau)
     {
-
         return repository.getMotsListNiv(idList,idNiveau);
-        //  return observateurListe;
+    }
+
+    public LiveData<Mot> updateMot(Mot mot){
+        repository.update(mot);
+        return null;
     }
 
 

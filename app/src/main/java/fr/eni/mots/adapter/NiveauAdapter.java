@@ -23,15 +23,11 @@ public class NiveauAdapter extends ArrayAdapter<Niveau> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
     {
         LayoutInflater pompe = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
         View fichierXmlDecompresse = pompe.inflate(R.layout.style_ligne_niv,parent,false);
-
         TextView tvLibelle = fichierXmlDecompresse.findViewById(R.id.tv_lst_niv_libelle);
-
         Niveau niveau = getItem(position);
 
         tvLibelle.setText(niveau.getLibelle());
         return fichierXmlDecompresse;
     }
-
 }

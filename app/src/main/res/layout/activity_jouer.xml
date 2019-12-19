@@ -72,14 +72,39 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.50" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top_dial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bas_dial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+
+    <ImageView
+        android:id="@+id/iv_jeux_imgfond"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/fond_noir"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@id/guideline_dessous_photo"
+        app:layout_constraintLeft_toRightOf="@id/guideline_gauche"
+        app:layout_constraintRight_toLeftOf="@id/guideline_droite"
+        app:layout_constraintTop_toBottomOf="@id/guideline_haut" />
+
     <ImageView
         android:id="@+id/iv_jeux_img"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:src="@mipmap/orange"
         android:scaleType="centerCrop"
-
         app:layout_constraintBottom_toTopOf="@id/guideline_dessous_photo"
         app:layout_constraintLeft_toRightOf="@id/guideline_gauche"
         app:layout_constraintRight_toLeftOf="@id/guideline_droite"
@@ -105,11 +130,13 @@
         app:layout_constraintLeft_toRightOf="@id/guideline_gauche"
         app:layout_constraintRight_toLeftOf="@id/guideline_droite"
         android:hint="RÉPONSE"
-        android:textColorHint="@color/blanc"
+        android:textColorHint="@color/blancOpaque"
+        app:backgroundTint="@color/rose"
         android:textColor="@color/blanc"
         android:textStyle="bold"
         android:textSize="22sp"
         android:outlineSpotShadowColor="@color/rouge"
+        android:gravity="center_horizontal"
         />
 
     <GridView
@@ -125,37 +152,77 @@
         android:visibility="gone"
         />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_valider"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:text="Valider"
-        android:textColor="@color/blanc"
-        android:textStyle="bold"
-        android:background="@color/bleu"
+        android:src="@mipmap/valider"
+        android:background="@null"
         app:layout_constraintBottom_toTopOf="@id/guideline_bas"
         app:layout_constraintLeft_toRightOf="@id/guideline_milieu"
         app:layout_constraintRight_toLeftOf="@id/guideline_droite"
-        app:layout_constraintTop_toBottomOf="@id/guideline_dessous_text" />
-
-    <Button
+        app:layout_constraintTop_toBottomOf="@id/guideline_dessous_text"
+        android:scaleType="centerInside"
+        />
+    <ImageButton
         android:id="@+id/btn_passer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:text="Passer"
-        android:textStyle="bold"
-        android:textColor="@color/blanc"
-        android:background="@color/rouge"
-        android:bottomRightRadius="500dp"
-        android:bottomLeftRadius="15dp"
-        android:topRightRadius="15dp"
-        android:topLeftRadius="15dp"
+        android:src="@mipmap/annuler"
+        android:background="@null"
         app:layout_constraintBottom_toTopOf="@id/guideline_bas"
         app:layout_constraintLeft_toRightOf="@id/guideline_gauche"
         app:layout_constraintRight_toLeftOf="@id/guideline_milieu"
-        app:layout_constraintTop_toBottomOf="@id/guideline_dessous_text" />
-
+        app:layout_constraintTop_toBottomOf="@id/guideline_dessous_text"
+        android:scaleType="centerInside"
+        />
+    <ImageView
+        android:id="@+id/iv_jeux_img_dialog"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="@color/cardview_shadow_start_color"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@id/guideline_bas_dial"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top_dial"
+        android:visibility="invisible"
+        />
+    <TextView
+        android:id="@+id/tv_jeux_reponse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top_dial"
+        app:layout_constraintBottom_toTopOf="@id/guideline_bas_dial"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        />
+    <ImageView
+        android:id="@+id/iv_jeux_star_gauche"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/star"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top_dial"
+        app:layout_constraintBottom_toTopOf="@id/guideline_bas_dial"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+        />
+    <ImageView
+        android:id="@+id/iv_jeux_star_droite"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/star"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top_dial"
+        app:layout_constraintBottom_toTopOf="@id/guideline_bas_dial"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

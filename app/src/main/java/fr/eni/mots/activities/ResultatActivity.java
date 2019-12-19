@@ -3,6 +3,8 @@ package fr.eni.mots.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -13,10 +15,11 @@ public class ResultatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_resultat);
 
         //TODO Implémenter les listebox (Spinner) avec les données de la base
-
 
         //get the spinner from the xml.
         Spinner dropdown = findViewById(R.id.spin_list);

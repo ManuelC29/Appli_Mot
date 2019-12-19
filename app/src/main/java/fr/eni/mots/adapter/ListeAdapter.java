@@ -23,16 +23,11 @@ public class ListeAdapter extends ArrayAdapter<Liste> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
     {
         LayoutInflater pompe = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
         View fichierXmlDecompresse = pompe.inflate(R.layout.style_ligne_liste,parent,false);
-
         TextView tvLibelle = fichierXmlDecompresse.findViewById(R.id.tv_lst_liste_libelle);
-
         Liste liste = getItem(position);
 
         tvLibelle.setText(liste.getLibelle());
         return fichierXmlDecompresse;
     }
-
-
 }

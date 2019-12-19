@@ -29,7 +29,6 @@ public class Mot {
     @ColumnInfo(name = "etat")
     private Integer etat;
 
-
     public Mot(Integer id, String motCorrect, String image, String motPropose, Integer etat, Integer idList) {
         this.id = id;
         this.motCorrect = motCorrect;

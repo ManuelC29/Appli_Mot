@@ -2,7 +2,10 @@ package fr.eni.mots.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     ImageView imButQuit;
     ImageView imButsetGris;
     ImageView imTitre;
+
+    MediaPlayer player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        player = MediaPlayer.create(this,R.raw.avengers);
+        String son = getSharedPreferences("setting_app",MODE_PRIVATE).getString("son","OFF");
+        Log.i("ZZZ",son);
+        if("ON".equals(son)){
+            player.start();
+        }else if("OFF".equals(son)){
+            player.stop();
+        }
 
         imButJouer = findViewById(R.id.btn_jouer);
         imButPropos = findViewById(R.id.btn_propos);
@@ -69,9 +84,7 @@ public class MainActivity extends AppCompatActivity {
         // Création de niveau
         Niveau niv1 = new Niveau(null,"Niveau 1 : Niveau des Petits Joueurs");
         Niveau niv2 = new Niveau(null,"Niveau 2 : Normal, On prend pas de risque");
-        Niveau niv3 = new Niveau(null, "Niveau 3 : Hard, On se prend pour une star");
-        Niveau niv4 = new Niveau(null,"Niveau 4 : Nightmare, Prêt à en baver ?");
-        Niveau niv5 = new Niveau(null, "Niveau 5 : Impossible, ne pas choisir");
+        Niveau niv3 = new Niveau(null, "Niveau 3 : Hard, On se prend pour une star");;
 
         //Instanciation du repository
         INiveauRepository repo = new NiveauBddRepository(this);
@@ -80,23 +93,18 @@ public class MainActivity extends AppCompatActivity {
         repo.insert(niv1);
         repo.insert(niv2);
         repo.insert(niv3);
-        repo.insert(niv4);
-        repo.insert(niv5);
-//
-          ///////////////   INSERTION DE LISTES //////////////////////
+
+        ///////////////   INSERTION DE LISTES //////////////////////
         IListeRepository listRepo = new ListeBddRepository(this);
         Liste list1 = new Liste(null,"Liste 1", 1);
         Liste list2 = new Liste(null,"Liste 2", 1);
-        Liste list3 = new Liste(null,"Liste 3", 1);
-        Liste list4 = new Liste(null,"Liste 4", 1);
-        Liste list5 = new Liste(null,"Liste 5", 1);
+        Liste list3 = new Liste(null,"Liste 1", 2);
+        Liste list4 = new Liste(null,"Liste 1", 3);
 
         listRepo.insert(list1);
         listRepo.insert(list2);
         listRepo.insert(list3);
         listRepo.insert(list4);
-        listRepo.insert(list5);
-//
 
         IMotRepository motRepository = new MotBddRepository(this);
         Mot mot1 = new Mot(null,"ABAT", "abat", "",0,1);
@@ -105,13 +113,46 @@ public class MainActivity extends AppCompatActivity {
         Mot mot4 = new Mot(null,"CERF", "cerf", "",0,1);
         Mot mot5 = new Mot(null,"DOOM", "doom", "",0,1);
 
+        Mot mot6 = new Mot(null,"TAXI", "taxi", "",0,2);
+        Mot mot7 = new Mot(null,"DUEL", "duel", "",0,2);
+        Mot mot8 = new Mot(null,"NEON", "neon", "",0,2);
+        Mot mot9 = new Mot(null,"WIFI", "wifi", "",0,2);
+        Mot mot10 = new Mot(null,"EXPO", "expo", "",0,2);
+
+        Mot mot11 = new Mot(null,"FUMEE", "fumee", "",0,3);
+        Mot mot12 = new Mot(null,"YOGAS", "yogas", "",0,3);
+        Mot mot13 = new Mot(null,"POMME", "pomme", "",0,3);
+        Mot mot14 = new Mot(null,"POUET", "pouet", "",0,3);
+        Mot mot15 = new Mot(null,"SABLE", "sable", "",0,3);
+
+        Mot mot16 = new Mot(null,"ADULTE", "adulte", "",0,4);
+        Mot mot17 = new Mot(null,"PINARD", "pinard", "",0,4);
+        Mot mot18 = new Mot(null,"JULIEN", "julien", "",0,4);
+        Mot mot19 = new Mot(null,"CHEVAL", "cheval", "",0,4);
+        Mot mot20 = new Mot(null,"VINYLS", "vinyls", "",0,4);
+        Mot mot21 = new Mot(null,"WOLOLO", "wololo", "",0,4);
+
         motRepository.insert(mot1);
         motRepository.insert(mot2);
         motRepository.insert(mot3);
         motRepository.insert(mot4);
         motRepository.insert(mot5);
-
-
+        motRepository.insert(mot6);
+        motRepository.insert(mot7);
+        motRepository.insert(mot8);
+        motRepository.insert(mot9);
+        motRepository.insert(mot10);
+        motRepository.insert(mot11);
+        motRepository.insert(mot12);
+        motRepository.insert(mot13);
+        motRepository.insert(mot14);
+        motRepository.insert(mot15);
+        motRepository.insert(mot16);
+        motRepository.insert(mot17);
+        motRepository.insert(mot18);
+        motRepository.insert(mot19);
+        motRepository.insert(mot20);
+        motRepository.insert(mot21);
 
     }
 
@@ -135,17 +176,25 @@ public class MainActivity extends AppCompatActivity {
     public void settings(View view) {
         Intent intent = new Intent(this,SettingActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right2, R.anim.slide_out_left2);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
-    public void about(View view) {
-        //TODO ABOUT
+    public void aPropos(View view) {
+        Intent intent = new Intent(this, AproposActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
 
     public void proposer(View view) {
         Intent intent = new Intent(this, ProposerActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right2, R.anim.slide_out_left2);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
+    public void information(View view) {
+        Intent intent = new Intent(this, InformationActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

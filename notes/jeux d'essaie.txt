@@ -1,0 +1,30 @@
+4 lettres :
+ABAT	
+ABBE	
+AMIS	
+CERF	
+DOOM
+
+4 lettres :
+TAXI
+DUEL
+NEON
+WIFI
+EXPO
+
+5 lettres :
+FUMEE
+YOGAS
+POMME
+POUET
+SABLE
+
+6 lettres :
+ADULTE
+PINARD
+JULIEN
+CHEVAL
+VINYLS
+WOLOLO
+
+

@@ -73,8 +73,8 @@
 
     <ImageButton
         android:id="@+id/setting_cran_gris"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@null"
         android:elevation="5dp"
         android:layout_margin="10dp"
@@ -87,30 +87,30 @@
 
     <ImageButton
         android:id="@+id/info"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@null"
         android:scaleType="centerInside"
         android:elevation="5dp"
         android:layout_margin="10dp"
-        android:src="@drawable/book"
+        android:src="@mipmap/docu"
         app:layout_constraintTop_toTopOf="@id/guideline_accueil_ico"
         app:layout_constraintLeft_toRightOf="@id/guideline_accueil_ico_mid"
-        android:onClick="about"
+        android:onClick="aPropos"
         />
 
     <ImageButton
         android:id="@+id/about"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@null"
         android:scaleType="centerInside"
         android:elevation="5dp"
         android:layout_margin="10dp"
-        android:src="@drawable/about"
+        android:src="@mipmap/info"
         app:layout_constraintTop_toTopOf="@id/guideline_accueil_ico"
         app:layout_constraintRight_toLeftOf="@id/guideline_accueil_droite"
-        android:onClick="about"
+        android:onClick="information"
         />
 
     <ImageButton
@@ -137,7 +137,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.01" />
+        app:layout_constraintGuide_percent="0" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_accueil_button"
         android:layout_width="wrap_content"

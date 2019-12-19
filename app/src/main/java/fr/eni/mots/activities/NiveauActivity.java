@@ -28,9 +28,6 @@ public class NiveauActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_niveau);
 
-
-        //INiveauRepository repo = new NiveauBddRepository(this);
-
         NiveauViewModel niveauViewModel = ViewModelProviders.of(this).get(NiveauViewModel.class);
         LiveData<List<Niveau>> observateur = niveauViewModel.get();
 
@@ -47,8 +44,7 @@ public class NiveauActivity extends AppCompatActivity {
                 listview.setAdapter(adapter);
 
                 //set des données dans la listeview
-                listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
-                {
+                listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(NiveauActivity.this,ListeActivity.class);

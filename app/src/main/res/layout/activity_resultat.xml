@@ -85,8 +85,8 @@
         app:layout_constraintLeft_toRightOf="@id/guideline_gauche"
         app:layout_constraintRight_toLeftOf="@id/guideline_droite"
         android:layout_margin="10dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
+        android:background="@android:drawable/spinner_background"
+        android:spinnerMode="dialog"
         />
     <TextView
         android:id="@+id/tv_result_liste"
@@ -103,6 +103,7 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="5"
+        android:layout_marginTop="10dp"
         />
 
     <Spinner
@@ -113,8 +114,8 @@
         app:layout_constraintLeft_toRightOf="@id/guideline_gauche"
         app:layout_constraintRight_toLeftOf="@id/guideline_droite"
         android:layout_margin="10dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
+        android:background="@android:drawable/spinner_background"
+        android:spinnerMode="dialog"
         />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_haut_list_view"

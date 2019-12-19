@@ -26,7 +26,6 @@ public class Liste implements Parcelable {
     @ColumnInfo(name = "libelle")
     private String libelle;
 
-
     public Liste(Integer id, String libelle, Integer idNiveau) {
         this.id = id;
         this.libelle = libelle;
@@ -82,7 +81,6 @@ public class Liste implements Parcelable {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
-
 
     @Override
     public int describeContents() {
